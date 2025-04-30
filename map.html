@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Thailand Map</title>
+  <style>
+    svg path {
+      fill: #ccc;
+      stroke: #444;
+      cursor: pointer;
+      transition: fill 0.2s;
+    }
+    svg path:hover {
+      fill: orange;
+    }
+  </style>
+</head>
+<body>
+  <h2>Thailand Interactive Map</h2>
+
+  <svg viewBox="0 0 1000 1200" width="100%" xmlns="http://www.w3.org/2000/svg">
+    <path id="bangkok" d="M100,100 L150,100 L150,150 L100,150 Z" />
+    <path id="chiangmai" d="M200,200 L250,200 L250,250 L200,250 Z" />
+    <path id="phuket" d="M300,300 L350,300 L350,350 L300,350 Z" />
+  </svg>
+
+  <script>
+    const links = {
+      bangkok: "https://example.com/bangkok",
+      chiangmai: "https://example.com/chiangmai",
+      phuket: "https://example.com/phuket"
+    };
+
+    Object.entries(links).forEach(([id, url]) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener("click", () => window.open(url, "_blank"));
+        el.setAttribute("title", id);
+      }
+    });
+  </script>
+</body>
+</html>
